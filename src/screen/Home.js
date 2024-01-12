@@ -10,7 +10,9 @@ export default function
     <div>
         <div><Navbar/></div>
         <div><Carousal/></div>
-        <div>
+        <div className='m-3'>
+            <Card/>
+            <Card/>
             <Card/>
         </div>
         <div><Footer/></div>
