@@ -14,13 +14,42 @@ export default function Cart() {
   }
   
   const handleCheckOut = async () => {
-   
-    };
+    let userEmail = localStorage.getItem("userEmail");
+    
+    
+    try {
+      let response = await fetch("http://localhost:5000/api/orderData", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          order_data: data,
+          email: userEmail,
+          order_date: new Date().toDateString()
+        })
+      });
+    
+      console.log("JSON RESPONSE:::::", response.status);
+    
+      if (response.status === 200) {
+        dispatch({ type: "DROP" });
+      } else {
+        // Log additional details in case of non-200 status
+        console.error("Non-200 status:", response.status, response.statusText);
+      }
+    } catch (error) {
+      // Log any other errors that might occur during the fetch
+      console.error("Error during fetch:", error.message);
+    }
+  }
+
+
   let totalPrice = data.reduce((total, food) => total + food.price, 0)
   return (
     <div>
 
-      {console.log(data)}
+    
       <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
         <table className='table table-hover '>
           <thead className=' text-success fs-4'>
