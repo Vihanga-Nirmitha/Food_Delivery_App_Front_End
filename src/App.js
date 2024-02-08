@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './screen/Home';
+import MyOrder from './screen/MyOrder';
 import{
   BrowserRouter as Router,
   Routes,
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/" element={<Home/>}/>
             <Route exact path="/login" element={<Login/>}/>
             <Route exact path="/createuser" element={<Signup/>}/>
+            <Route exact path="/myOrder" element={<MyOrder/>}/>
           </Routes>
       </div>
     </Router>
