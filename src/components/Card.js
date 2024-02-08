@@ -14,7 +14,7 @@ export default function Card(props) {
       type: "ADD",
       id: props.foodItem._id,
       name: props.foodItem.name,
-      price: finalPrice,
+      price: props.finalPrice,
       qty: qty,
       size: size
     };
